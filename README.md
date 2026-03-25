@@ -23,7 +23,21 @@ Existing lightweight HTTP servers often lack built-in security protections. This
 ## Usage
 
 ```bash
-node bin/server.js ./public
+node bin/http-server ./public
+```
+
+### Programmatic usage
+
+```js
+const { createServer } = require('./lib/http-server');
+
+const server = createServer({
+	root: './public',
+	securityHeaders: true,
+	accessLog: true,
+});
+
+server.listen(8080);
 ```
 
 ## Future Work
